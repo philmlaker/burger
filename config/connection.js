@@ -7,7 +7,7 @@ var mysql = require('mysql');
 // 	database:'employeeRegistry'
 // });
 
-exports.connection = function connect(app) {
+exports.connection = function connect() {
 
     var connection = mysql.createConnection({
         host: 'localhost',
