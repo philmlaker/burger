@@ -1,31 +1,44 @@
 <h1>Eat That Burger!</h1>
 
-<p> {{burgers}} </p>
 
-{{!-- <ul>
-  {{#each plans}}
+
+<ul>
+  {{#each burgers}}
     <li>
       <p>
-        {{this.id}}. {{this.plan}}
-
-        <form action="/{{this.id}}?_method=DELETE" method="POST">
+         <h2>{{this.id}}. {{this.burger_name}}</h2>
+        <form action="/?_method=PUT" method="POST">
           <input type="hidden" name="id" value="{{this.id}}">
           <button type="submit">Devour Burger!</button>
         </form>
       </p>
     </li>
   {{/each}}
-</ul> --}}
+</ul>
 
-<h2>Create a Plan</h2>
+
+{{!-- <ul>
+  {{#each burgers}}
+  {{#if this.devoured}}
+    <li>
+      <p>
+         <h2>{{this.burger_name}}</h2>
+        </form>
+      </p>
+    </li>
+  {{/each}}
+</ul>vs
+
+
+
+
+
+ --}}
+
+
+<h2>Add a Burger</h2>
 <form method="POST" action="/" class="button-size">
-	<textarea type="text" name="plan"></textarea>
-	<button type="submit">Save Plan!</button>
+	<textarea type="text" name="burger_name"></textarea>
+	<button type="submit">Save Burgers!</button>
 </form>
 
-<h2>Update a Plan</h2>
-<form action="/?_method=PUT" method="POST" class="button-size">
-  <input type="text" name="id" placeholder="id">
-	<textarea type="text" name="plan" placeholder="plan"></textarea>
-	<button type="submit">Update Plan!</button>
-</form>
