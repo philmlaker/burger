@@ -4,37 +4,33 @@
 
 <ul>
   {{#each burgers}}
+  {{#unless this.devoured}}
     <li>
       <p>
          <h2>{{this.id}}. {{this.burger_name}}</h2>
-        <form action="/?_method=PUT" method="POST">
-          <input type="hidden" name="id" placeholder="id">
+        <form action="/{{this.id}} ?_method=PUT" method="POST">
+          <input type="hidden" name="devoured" value = "true">
           <button type="submit">Devour Burger!</button>
         </form>
       </p>
     </li>
+    {{/unless}}
   {{/each}}
 </ul>
 
 
-{{!-- <ul>
+<h2>Burgers that have been devoured!</h2>
+
+<ul>
   {{#each burgers}}
-  {{#if this.devoured}}
-    <li>
-      <p>
-         <h2>{{this.burger_name}}</h2>
-        </form>
-      </p>
-    </li>
+    {{#if this.devoured}}
+      <li>
+        {{this.burger_name}}
+
+      </li>
+    {{/if}}
   {{/each}}
-</ul>vs
-
-
-
-
-
- --}}
-
+</ul>
 
 <h2>Add a Burger</h2>
 <form method="POST" action="/" class="button-size">
